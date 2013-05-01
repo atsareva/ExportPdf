@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Document   : config.xml
+    Created on : May 1, 2013, 3:06 PM
+    Author     : Tsareva Alena <tsareva.as@gmail.com>
+-->
+
+
+<config>
+    <modules>
+        <Tsareva_ExportPdf>
+            <version>0.1.0</version>
+        </Tsareva_ExportPdf>
+    </modules>
+    <global>
+        <helpers>
+            <tsareva_exportpdf>
+                <class>Tsareva_ExportPdf_Helper</class>
+            </tsareva_exportpdf>
+        </helpers>
+        <blocks>
+            <tsareva_exportpdf>
+                <class>Tsareva_ExportPdf_Block</class>
+            </tsareva_exportpdf>
+        </blocks>
+        <models>
+            <tsareva_exportpdf>
+                <class>Tsareva_ExportPdf_Model</class>
+            </tsareva_exportpdf>
+        </models>
+    </global>
+    <frontend>
+        <routers>
+            <tsareva_exportpdf>
+                <use>standard</use>
+                <args>
+                    <module>Tsareva_ExportPdf</module>
+                    <frontName>exportPdf</frontName>
+                </args>
+            </tsareva_exportpdf>
+        </routers>
+    </frontend>
+</config>
+

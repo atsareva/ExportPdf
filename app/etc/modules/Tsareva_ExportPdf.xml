@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Document   : Tsareva_SalesGrid.xml
+    Created on : May 1, 2013, 3:04 PM
+    Author     : Tsareva Alena <tsareva.as@gmail.com>
+-->
+
+<config>
+    <modules>
+        <Tsareva_ExportPdf>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Tsareva_ExportPdf>
+    </modules>
+</config>
