@@ -22,6 +22,11 @@
             <tsareva_exportpdf>
                 <class>Tsareva_ExportPdf_Block</class>
             </tsareva_exportpdf>
+            <adminhtml>
+                <rewrite>
+                    <sales_order_grid>Tsareva_ExportPdf_Block_Adminhtml_Sales_Order_Grid</sales_order_grid>
+                </rewrite>
+            </adminhtml>
         </blocks>
         <models>
             <tsareva_exportpdf>
