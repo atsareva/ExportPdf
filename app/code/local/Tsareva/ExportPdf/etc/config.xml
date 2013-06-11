@@ -45,5 +45,18 @@
             </tsareva_exportpdf>
         </routers>
     </frontend>
+    <adminhtml>
+        <events>
+            <core_block_abstract_prepare_layout_before>
+                <observers>
+                    <addMassaction>
+                        <type>model</type>
+                        <class>Tsareva_ExportPdf_Model_Observer</class>
+                        <method>addMassaction</method>
+                    </addMassaction>
+                </observers>
+            </core_block_abstract_prepare_layout_before>
+        </events>
+    </adminhtml>
 </config>
 
