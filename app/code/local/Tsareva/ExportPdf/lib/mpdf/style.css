@@ -1,0 +1,18 @@
+table {font-size: 10px;width: 100%;}
+table tr th{text-align: left;}
+table td, table th{padding: 0 5px 5px;}
+table tr td:first-child{padding-left: 0;}
+table td{vertical-align: top;}
+table td.label{width: 200px;}
+table td.value{width: 300px;}
+
+div.block{width: 100%;border: 1px solid #333;margin-bottom: 20px;}
+div.block .head{padding: 5px 20px; border-bottom: 1px solid #333;font-size: 12px;background-color: #e8e8e8;}
+div.block .fieldset{padding: 10px;}
+
+div.block p{margin: 0;padding: 0;}
+
+@media print
+{
+    .break {page-break-before:always}
+}

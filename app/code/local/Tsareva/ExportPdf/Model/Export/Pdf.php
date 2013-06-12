@@ -46,34 +46,6 @@ class Tsareva_ExportPdf_Model_Export_Pdf extends Mage_Core_Model_Abstract
         return $orderInfo;
     }
 
-    public function indexAction()
-    {
-        $order = $this->_initOrder();
-
-        $orderInfo = array(
-            'Order Information'   => array(
-                'Order ID'   => $order->getRealOrderId(),
-                'Order Date' => Mage::helper('core')->formatDate($order->getCreatedAt(), 'medium', true),
-            ),
-            'Account Information' => array(
-                'Customer Name' => $order->getCustomerName(),
-                'Email'         => $order->getCustomerEmail(),
-            ),
-            'Billing Address'     => $this->_getAddressHtml($order->getBillingAddress()),
-            'Shipping Address'    => $this->_getAddressHtml($order->getShippingAddress()),
-            'Items Ordered'       => $this->_getOrderedItems($order->getItemsCollection()->getItems()),
-        );
-
-        if ($order->getExpectedDispatchDate())
-            $orderInfo['Order Information']['Expected Dispatch Date'] = Mage::helper('core')->formatDate($order->getExpectedDispatchDate(), 'medium', true);
-
-        if ($order->getGiftMessageId())
-            $orderInfo['Additional Information'] = $this->_getGiftMessage($order->getGiftMessageId());
-
-        $html = Mage::getModel('core/layout')->createBlock('core/template', 'exportPdf', array('template' => 'exportpdf/sales/order/view.phtml'))->assign('order', $orderInfo)->toHtml();
-        Mage::getModel('pinpointdesigns_exportpdf/pdf')->export($html, 'Order-' . $order->getRealOrderId());
-    }
-
     /**
      * Retrieve billing|shipping address info
      *

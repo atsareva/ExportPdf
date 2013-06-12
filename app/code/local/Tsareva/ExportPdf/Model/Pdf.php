@@ -27,7 +27,7 @@ class Tsareva_ExportPdf_Model_Pdf extends Mage_Core_Model_Abstract
         $mpdf = new mPDF('utf-8', 'A4', '8', '', 10, 10, 7, 7, 10, 10); /* задаем формат, отступы и.т.д. */
 
         //get style sheet
-        $stylesheet = file_get_contents(Mage::getModuleDir('lib', 'Tsareva_ExportPdf') . '/lib/mpdf/mpdf.css');
+        $stylesheet = file_get_contents(Mage::getModuleDir('lib', 'Tsareva_ExportPdf') . '/lib/mpdf/style.css');
 
         $mpdf->WriteHTML($stylesheet, 1);
         $mpdf->list_indent_first_level = 0;
