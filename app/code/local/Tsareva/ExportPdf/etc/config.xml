@@ -12,6 +12,30 @@
             <version>0.1.0</version>
         </Tsareva_ExportPdf>
     </modules>
+    <admin>
+        <routers>
+            <tsareva_exportpdf>
+                <use>admin</use>
+                <args>
+                    <module>Tsareva_ExportPdf</module>
+                    <frontName>exportpdf</frontName>
+                </args>
+            </tsareva_exportpdf>
+        </routers>
+    </admin>
+    <adminhtml>
+        <events>
+            <core_block_abstract_prepare_layout_before>
+                <observers>
+                    <addMassaction>
+                        <type>model</type>
+                        <class>Tsareva_ExportPdf_Model_Observer</class>
+                        <method>addMassaction</method>
+                    </addMassaction>
+                </observers>
+            </core_block_abstract_prepare_layout_before>
+        </events>
+    </adminhtml>
     <global>
         <helpers>
             <tsareva_exportpdf>
@@ -34,29 +58,5 @@
             </tsareva_exportpdf>
         </models>
     </global>
-    <frontend>
-        <routers>
-            <tsareva_exportpdf>
-                <use>standard</use>
-                <args>
-                    <module>Tsareva_ExportPdf</module>
-                    <frontName>exportPdf</frontName>
-                </args>
-            </tsareva_exportpdf>
-        </routers>
-    </frontend>
-    <adminhtml>
-        <events>
-            <core_block_abstract_prepare_layout_before>
-                <observers>
-                    <addMassaction>
-                        <type>model</type>
-                        <class>Tsareva_ExportPdf_Model_Observer</class>
-                        <method>addMassaction</method>
-                    </addMassaction>
-                </observers>
-            </core_block_abstract_prepare_layout_before>
-        </events>
-    </adminhtml>
 </config>
 

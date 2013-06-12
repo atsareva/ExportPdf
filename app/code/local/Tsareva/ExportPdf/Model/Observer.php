@@ -7,7 +7,7 @@
  * @package    Tsareva_SalesGrid
  * @author     Tsareva Alena <tsareva.as@gmail.com>
  */
-class Tsareva_ExportPdf_Model_Observer extends Mage_Core_Model_Abstract
+class Tsareva_ExportPdf_Model_Observer
 {
 
     /**
@@ -18,9 +18,9 @@ class Tsareva_ExportPdf_Model_Observer extends Mage_Core_Model_Abstract
     {
         $block = $observer->getEvent()->getBlock();
         if (get_class($block) == 'Mage_Adminhtml_Block_Widget_Grid_Massaction' && $block->getRequest()->getControllerName() == 'sales_order') {
-            $block->addItem('pdfexport', array(
+            $block->addItem('exportpdf', array(
                 'label' => Mage::helper('core')->__('Export to .pdf file'),
-                'url'   => $this->getUrl('exportPdf/export_order/export'))
+                'url'   => Mage::app()->getStore()->getUrl('exportpdf/export_order/export'))
             );
         }
     }
