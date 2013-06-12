@@ -1,0 +1,49 @@
+<?php foreach ($orders as $order): ?>
+    <?php foreach ($order as $key => $value): ?>
+        <div class="block">
+            <div class="head">
+                <?php echo $key; ?>
+            </div>
+            <div class="fieldset">
+                <?php if (is_array($value)): ?>
+                    <table>
+                        <?php if ($key === 'Items Ordered'): ?>
+                            <thead>
+                                <tr>
+                                    <th><?php echo $this->__('Name'); ?></th>
+                                    <th><?php echo $this->__('SKU'); ?></th>
+                                    <th><?php echo $this->__('Product Options') ?></th>
+                                </tr>
+                            </thead>
+                            <?php foreach ($value as $v): ?>
+                                <tr>
+                                    <td><?php echo $v['name']; ?></td>
+                                    <td><?php echo $v['sku']; ?></td>
+                                    <?php if (isset($v['options']) && is_array($v['options'])): ?>
+                                        <td>
+                                            <?php foreach ($v['options'] as $option): ?>
+                                                <p><strong><?php echo $option['label']; ?></strong> - <?php echo $option['value']; ?></p>
+                                            <?php endforeach; ?>
+                                        </td>
+                                    <?php else: ?>
+                                        <td>-</td>
+                                    <?php endif; ?>
+                                </tr>
+                                </tbody>
+                            <?php endforeach; ?>
+                        <?php else: ?>
+                            <?php foreach ($value as $k => $v): ?>
+                                <tr>
+                                    <td class="label"><?php echo $k; ?></td>
+                                    <td class="value"><strong><?php echo $v; ?></strong></td>
+                                </tr>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
+                    </table>
+                <?php else: ?>
+                    <?php echo $value; ?>
+                <?php endif; ?>
+            </div>
+        </div>
+    <?php endforeach; ?>
+<?php endforeach; ?>
