@@ -16,9 +16,15 @@ class Tsareva_ExportPdf_Export_OrderController extends Mage_Adminhtml_Controller
      */
     public function exportAction()
     {
-        $orders = $this->getRequest()->getPost('order_ids', array());
-        $ordersInfo   = Mage::getModel('tsareva_exportpdf/export_pdf')->exportOrders($orders);
+        $orderIds = $this->getRequest()->getPost('order_ids', array());
+
+        //get orders info by id's
+        $ordersInfo   = Mage::getModel('tsareva_exportpdf/export_pdf')->getOrdersInfo($orderIds);
+
+        //retrieve orders html
         $html = Mage::getModel('core/layout')->createBlock('core/template', 'exportPdf', array('template' => 'exportpdf/sales/order/view.phtml'))->assign('orders', $ordersInfo)->toHtml();
+
+        //export to pdf
         Mage::getModel('tsareva_exportpdf/pdf')->export($html, 'Order_' . date("Ymd_His"));
     }
 

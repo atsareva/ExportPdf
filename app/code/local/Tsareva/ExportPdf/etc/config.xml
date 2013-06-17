@@ -12,6 +12,28 @@
             <version>0.1.0</version>
         </Tsareva_ExportPdf>
     </modules>
+    <global>
+        <helpers>
+            <tsareva_exportpdf>
+                <class>Tsareva_ExportPdf_Helper</class>
+            </tsareva_exportpdf>
+        </helpers>
+        <blocks>
+            <tsareva_exportpdf>
+                <class>Tsareva_ExportPdf_Block</class>
+            </tsareva_exportpdf>
+            <adminhtml>
+                <rewrite>
+                    <sales_order_grid>Tsareva_ExportPdf_Block_Adminhtml_Sales_Order_Grid</sales_order_grid>
+                </rewrite>
+            </adminhtml>
+        </blocks>
+        <models>
+            <tsareva_exportpdf>
+                <class>Tsareva_ExportPdf_Model</class>
+            </tsareva_exportpdf>
+        </models>
+    </global>
     <admin>
         <routers>
             <tsareva_exportpdf>
@@ -35,28 +57,28 @@
                 </observers>
             </core_block_abstract_prepare_layout_before>
         </events>
+        <acl>
+            <resources>
+                <all>
+                    <title>Allow Everything</title>
+                </all>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <export_pdf>
+                                            <title>Export to PDF</title>
+                                        </export_pdf>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
     </adminhtml>
-    <global>
-        <helpers>
-            <tsareva_exportpdf>
-                <class>Tsareva_ExportPdf_Helper</class>
-            </tsareva_exportpdf>
-        </helpers>
-        <blocks>
-            <tsareva_exportpdf>
-                <class>Tsareva_ExportPdf_Block</class>
-            </tsareva_exportpdf>
-            <adminhtml>
-                <rewrite>
-                    <sales_order_grid>Tsareva_ExportPdf_Block_Adminhtml_Sales_Order_Grid</sales_order_grid>
-                </rewrite>
-            </adminhtml>
-        </blocks>
-        <models>
-            <tsareva_exportpdf>
-                <class>Tsareva_ExportPdf_Model</class>
-            </tsareva_exportpdf>
-        </models>
-    </global>
 </config>
 

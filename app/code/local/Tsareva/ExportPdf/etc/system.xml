@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : system.xml
+    Created on : April 29, 2013, 5:38 PM
+    Author     : Tsareva Alena <tsareva.as@gmail.com>
+-->
+
+<config>
+    <tabs>
+        <tsareva translate="label">
+            <label>Tsareva</label>
+            <sort_order>201</sort_order>
+        </tsareva>
+    </tabs>
+    <sections>
+        <export_pdf translate="label">
+            <label>Export to PDF</label>
+            <tab>tsareva</tab>
+            <sort_order>998</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <sales_order translate="label">
+                    <label>Sales Order</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                    </fields>
+                </sales_order>
+            </groups>
+        </export_pdf>
+    </sections>
+</config>

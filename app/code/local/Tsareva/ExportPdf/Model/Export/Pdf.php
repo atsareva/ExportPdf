@@ -10,7 +10,13 @@
 class Tsareva_ExportPdf_Model_Export_Pdf extends Mage_Core_Model_Abstract
 {
 
-    public function exportOrders($ids)
+    /**
+     * Retrieve orders info by id's
+     *
+     * @param array $ids
+     * @return array
+     */
+    public function getOrdersInfo($ids)
     {
         $ordersInfo = array();
 
@@ -24,6 +30,12 @@ class Tsareva_ExportPdf_Model_Export_Pdf extends Mage_Core_Model_Abstract
         return $ordersInfo;
     }
 
+    /**
+     * Retrieve order info
+     *
+     * @param Mage_Sales_Model_Order $order
+     * @return array
+     */
     private function _getOrderInfo($order)
     {
         $orderInfo = array(
